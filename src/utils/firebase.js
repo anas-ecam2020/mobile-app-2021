@@ -3,14 +3,14 @@ import "firebase/auth"
 
 
 const app = firebase.initializeApp({
-    apiKey: "AIzaSyA4nsslHtrNl0qlHVqHLpzCd74VX3h-ieA",
-    authDomain: "mobile-app-323f2.firebaseapp.com",
-    databaseURL: "https://mobile-app-323f2-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "mobile-app-323f2",
-    storageBucket: "mobile-app-323f2.appspot.com",
-    messagingSenderId: "744003088181",
-    appId: "1:744003088181:web:88a68e59a507c4e18de67c"
-  });
+  apiKey: "AIzaSyBpeHiPq3DyXMAxlOnriOEPW4NbVsuhiZ8",
+  authDomain: "mobile-app-e4347.firebaseapp.com",
+  databaseURL: "https://mobile-app-e4347-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "mobile-app-e4347",
+  storageBucket: "mobile-app-e4347.appspot.com",
+  messagingSenderId: "229855948731",
+  appId: "1:229855948731:web:e51fa79a171f8464bf1e9e"
+});
 
 
 
