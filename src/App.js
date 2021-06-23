@@ -16,6 +16,8 @@ import {
 import { AuthProvider } from './components/Auth';
 import PrivateRoute from './components/PrivateRoute';
 
+
+// Router app for all application components
 function App() {
   return (
     <div className="App">

@@ -8,7 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
+    // won't reload page on sign up button
     event.preventDefault();
+    // get email and password inputs
     const { email, name, password } = event.target.elements;
     
     const userRef = app.database().ref('Users');
@@ -19,10 +21,9 @@ const SignUp = ({ history }) => {
           return alert("Pseudo already exist")
         }
       }
-    
-
       try {
         await app
+        // Firebase API in order to create a new user
           .auth()
           .createUserWithEmailAndPassword(email.value, password.value)
             .then(authenticate=>{
@@ -34,11 +35,10 @@ const SignUp = ({ history }) => {
             });
         const usersRef = app.database().ref('Users');
         usersRef.push({name:name.value,follow:[name.value]});
+        // if user is created, redirect to root path
         history.push("/");
-
-
-
       } catch (error) {
+        // if user creation doesn't work
         alert(error);
       }
     })

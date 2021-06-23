@@ -14,7 +14,7 @@ export default function Forme() {
 
   const [submit, setSubmit] = useState('')
 
-
+// variables in order to stock input values into form
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
@@ -25,24 +25,26 @@ export default function Forme() {
     setImgUrl(e.target.value)
   };
 
-
   var user = app.auth().currentUser;
+  // if user exists print its username
   if (user != null) {
           console.log(user.displayName)
   }
-  const createTodo = () => {
-    var user = app.auth().currentUser.displayName;
 
-    const todoRef = app.database().ref('Tweets');
-    const todo = {
+  const createBanch = () => {
+    // get user which creates a new Banch
+    var user = app.auth().currentUser.displayName;
+    
+// Within DB it's called 'Tweets'
+    const banchRef = app.database().ref('Tweets');
+    const banch = {
       title,
       content,
       user,
       imgUrl
     };
 
-    todoRef.push(todo);
-    console.log("Helllooo")
+    banchRef.push(banch);
     setSubmit(true)
   };
 
@@ -74,7 +76,7 @@ export default function Forme() {
             <Form.Control type="text" placeholder="Enter a title here !" onChange={handleImgChange} value={imgUrl} />
           </Form.Group>
         
-          <Button variant="primary" onClick={createTodo}> Submit !</Button>
+          <Button variant="primary" onClick={createBanch}> Submit !</Button>
 
         </Form>
 

@@ -57,13 +57,13 @@ export default function UserProfile() {
             console.log("coucou je rentre")
             const users = snapshot.val()
             console.log(users)
-            for(let userID in users ){
+            for(let userID in users){
               if(users[userID].name === userName){
                 // console.log(name)
                 // console.log(users[userID].name)
                 
                 const followedPersons = users[userID].follow
-                
+
                 followedPersons.push(name)
                 
                 const userRef = app.database().ref('Users').child(userID);

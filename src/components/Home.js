@@ -24,10 +24,12 @@ const Home = () => {
   useEffect(()=>{
     const tweetRef = app.database().ref('Tweets');
     tweetRef.on('value',(snapchot)=>{
+      // retrieve all banches
       const tweets = snapchot.val()
+      //filter banches because we were not able to make direct queries on firebase DB
       const tweetList = []
       
-      //Cherche notre propre user dans la database
+      //Look for the current user on the DB
       const usersRef = app.database().ref('Users');
       usersRef.on('value',(snapshot)=>{
         const users = snapshot.val()
@@ -40,7 +42,7 @@ const Home = () => {
         console.log(followList)
      
         for(let id in tweets ){
-
+          
           if(followList.includes(tweets[id].user)){
             console.log("Yes")
             var nbLikes = 0;

@@ -10,13 +10,18 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const Login = ({ history }) => {
   const handleLogin = useCallback(
     async event => {
+      // won't reload page on login button
       event.preventDefault();
+      // get email and password inputs
       const { email, password } = event.target.elements;
       try {
+        // firebase API pour faire un login
         await app
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
+          // if user connects successfully redirect to root path
         history.push("/");
+        // if the user does not exist then show error alert
       } catch (error) {
         alert(error);
       }
@@ -25,7 +30,7 @@ const Login = ({ history }) => {
   );
 
   const { currentUser } = useContext(AuthContext);
-
+// if user is logged in then redirect to root path (home)
   if (currentUser) {
     return <Redirect to="/" />;
   }
